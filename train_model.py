@@ -4,7 +4,7 @@ import numpy as np
 
 print("\n======================================================\n")
 
-# --- Preparação dos Dados ---
+# Preparação dos Dados 
 print("Carregando dataset MNIST...")
 (x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
 
@@ -17,7 +17,7 @@ x_train = np.expand_dims(x_train, -1)
 x_test = np.expand_dims(x_test, -1)
 
 
-# --- Definição da Arquitetura ---
+# Definição da Arquitetura 
 print("Preparando o modelo Edge AI...")
 
 # Optamos por uma arquitetura enxuta (16/32 filtros) para garantir viabilidade em microcontroladores
@@ -47,7 +47,7 @@ model.compile(
 )
 
 
-# --- Ciclo de Treinamento ---
+# Ciclo de Treinamento 
 print("Treinando o modelo...")
 
 # 5 épocas são suficientes para >98% de acurácia no MNIST sem risco de overfitting severo
@@ -60,7 +60,7 @@ model.fit(
 )
 
 
-# --- Avaliação e Exportação ---
+# Avaliação e Exportação 
 test_loss, test_acc = model.evaluate(x_test, y_test, verbose=0)
 print(f"\n[!] Acurácia final no teste: {test_acc:.4f}")
 
